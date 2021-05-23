@@ -17,6 +17,14 @@ namespace PlanningPocker.Persistance.Context
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=MISTER\\SQLEXPRESS;Initial Catalog=PLanningPockerDB;Integrated Security=True;");
+            }
+        }
+
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Letter> Letters { get; set; }
         public virtual DbSet<UserHistory> UserHistories { get; set; }

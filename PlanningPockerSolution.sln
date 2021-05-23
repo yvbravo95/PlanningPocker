@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanningPocker", "PlanningPocker\PlanningPocker.csproj", "{BE53F44B-97EF-4741-918E-7904D7D697BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanningPocker.Domain", "PlanningPocker.Domain\PlanningPocker.Domain.csproj", "{48417882-3D7F-4F51-AD11-86ADFEC64DA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanningPocker.Persistance", "PlanningPocker.Persistance\PlanningPocker.Persistance.csproj", "{309BBB6A-FC1F-4C7C-91A3-4908457C66AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanningPocker.Services", "PlanningPocker.Services\PlanningPocker.Services.csproj", "{8B0901EB-1873-4FB4-9650-BE3DF92DF23D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanningPocker.Common", "PlanningPocker.Common\PlanningPocker.Common.csproj", "{4799F5A5-CA12-441E-8BCF-C6D9B940946F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE53F44B-97EF-4741-918E-7904D7D697BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE53F44B-97EF-4741-918E-7904D7D697BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE53F44B-97EF-4741-918E-7904D7D697BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE53F44B-97EF-4741-918E-7904D7D697BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48417882-3D7F-4F51-AD11-86ADFEC64DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48417882-3D7F-4F51-AD11-86ADFEC64DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48417882-3D7F-4F51-AD11-86ADFEC64DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48417882-3D7F-4F51-AD11-86ADFEC64DA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{309BBB6A-FC1F-4C7C-91A3-4908457C66AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{309BBB6A-FC1F-4C7C-91A3-4908457C66AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{309BBB6A-FC1F-4C7C-91A3-4908457C66AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{309BBB6A-FC1F-4C7C-91A3-4908457C66AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B0901EB-1873-4FB4-9650-BE3DF92DF23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B0901EB-1873-4FB4-9650-BE3DF92DF23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B0901EB-1873-4FB4-9650-BE3DF92DF23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B0901EB-1873-4FB4-9650-BE3DF92DF23D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4799F5A5-CA12-441E-8BCF-C6D9B940946F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4799F5A5-CA12-441E-8BCF-C6D9B940946F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4799F5A5-CA12-441E-8BCF-C6D9B940946F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4799F5A5-CA12-441E-8BCF-C6D9B940946F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7032ABF7-6BAD-4329-B5D7-7620D37DA4C1}
+	EndGlobalSection
+EndGlobal

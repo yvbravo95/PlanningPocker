@@ -79,9 +79,9 @@ namespace PlanningPocker
                     document.Info.TermsOfService = "None";
                     document.Info.Contact = new NSwag.OpenApiContact
                     {
-                        Name = "Shayne Boyer",
-                        Email = string.Empty,
-                        Url = "https://twitter.com/spboyer"
+                        Name = "Yunier Velazco Bravo",
+                        Email = "velazcobravoyunier@gmail.com",
+                        Url = "https://twitter.com/yunier95"
                     };
                     document.Info.License = new NSwag.OpenApiLicense
                     {
@@ -117,7 +117,6 @@ namespace PlanningPocker
                 c.DocumentPath = "/swagger/{documentName}/swagger.json";
             }
             );
-            app.UseMvc();
 
             app.UseRouting();
 

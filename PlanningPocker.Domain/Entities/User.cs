@@ -12,9 +12,11 @@ namespace PlanningPocker.Domain.Entities
         {
         }
 
-        public User(string name)
+        public User(string name, string userName, string email)
         {
             Name = name;
+            UserName = userName;
+            Email = email;
         }
 
         public void Update(string name)
@@ -22,6 +24,6 @@ namespace PlanningPocker.Domain.Entities
             Name = name;
         }
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
     }
 }

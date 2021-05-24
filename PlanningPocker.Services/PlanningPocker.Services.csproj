@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="CSharpFunctionalExtensions" Version="2.15.2" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PlanningPocker.Common\PlanningPocker.Common.csproj" />
+    <ProjectReference Include="..\PlanningPocker.Persistance\PlanningPocker.Persistance.csproj" />
+  </ItemGroup>
+
 </Project>

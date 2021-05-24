@@ -1,17 +1,22 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using NSwag;
 using NSwag.Generation.Processors.Security;
+using PlanningPocker.Domain.Entities;
 using PlanningPocker.Persistance.Context;
+using PlanningPocker.Services.IUserServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +40,24 @@ namespace PlanningPocker
         {
             services.AddDbContext<PlanningPockerContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<User, IdentityRole<Guid>>(cfg =>
+            {
+                cfg.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;
+                cfg.SignIn.RequireConfirmedEmail = false;
+                cfg.SignIn.RequireConfirmedPhoneNumber = true;
+                cfg.SignIn.RequireConfirmedAccount = false;
+                cfg.User.RequireUniqueEmail = true;
+                cfg.Password.RequireDigit = false;
+                cfg.Password.RequiredUniqueChars = 0;
+                cfg.Password.RequireLowercase = false;
+                cfg.Password.RequireNonAlphanumeric = false;
+                cfg.Password.RequireUppercase = false;
+                cfg.Password.RequiredLength = 6;
+            }).AddEntityFrameworkStores<PlanningPockerContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddScoped<IUserService, UserService>();
 
             var key = Encoding.ASCII.GetBytes((Configuration.GetValue<string>("SecretKey")));
             services.AddMvc();

@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using NSwag;
 using NSwag.Generation.Processors.Security;
+using PlanningPocker.Class;
 using PlanningPocker.Domain.Entities;
 using PlanningPocker.Persistance.Context;
 using PlanningPocker.Services.IUserServices;
@@ -38,9 +39,12 @@ namespace PlanningPocker
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PlanningPockerContext>(
+            /*services.AddDbContext<PlanningPockerContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            */
+            services.AddDbContext<PlanningPockerContext>(options => {
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+            });
             services.AddIdentity<User, IdentityRole<Guid>>(cfg =>
             {
                 cfg.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;
@@ -115,7 +119,7 @@ namespace PlanningPocker
 
             });
             services.AddControllers();
-
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -148,6 +152,7 @@ namespace PlanningPocker
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<VoteHub>("/allvotes");
             });
         }
     }

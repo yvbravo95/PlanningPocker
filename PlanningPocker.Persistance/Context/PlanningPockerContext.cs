@@ -21,7 +21,8 @@ namespace PlanningPocker.Persistance.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=MISTER\\SQLEXPRESS;Initial Catalog=PLanningPockerDB;Integrated Security=True;");
+                //optionsBuilder.UseSqlServer("Server=MISTER\\SQLEXPRESS;Initial Catalog=PLanningPockerDB;Integrated Security=True;");
+                optionsBuilder.UseNpgsql("Server=batyr.db.elephantsql.com;Database=abumyzqa;User Id=abumyzqa;Password=T3AvQKjFNfxlJMtABVM4_2K8XjZSjsaF");
             }
         }
 

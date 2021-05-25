@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlanningPocker.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class VotesController : ControllerBase

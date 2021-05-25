@@ -15,9 +15,13 @@ using Microsoft.IdentityModel.Tokens;
 using NSwag;
 using NSwag.Generation.Processors.Security;
 using PlanningPocker.Class;
+using PlanningPocker.Common.Services.IUserResolverServices;
 using PlanningPocker.Domain.Entities;
 using PlanningPocker.Persistance.Context;
+using PlanningPocker.Services.ILetterServices;
+using PlanningPocker.Services.IUserHistoryServices;
 using PlanningPocker.Services.IUserServices;
+using PlanningPocker.Services.IVoteServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,7 +65,12 @@ namespace PlanningPocker
             }).AddEntityFrameworkStores<PlanningPockerContext>()
                 .AddDefaultTokenProviders();
 
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ILetterService, LetterService>();
+            services.AddScoped<IUserHistoryService, UserHistoryService>();
+            services.AddScoped<IUserResolverService, UserResolverService>();
+            services.AddScoped<IVoteService, VoteService>();
 
             var key = Encoding.ASCII.GetBytes((Configuration.GetValue<string>("SecretKey")));
             services.AddMvc();

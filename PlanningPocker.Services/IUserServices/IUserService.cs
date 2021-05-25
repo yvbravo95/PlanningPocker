@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using PlanningPocker.Domain.Entities;
 using PlanningPocker.Persistance.Context;
 using PlanningPocker.Services.IUserServices.Models;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PlanningPocker.Services.IUserServices
@@ -12,6 +14,7 @@ namespace PlanningPocker.Services.IUserServices
     {
         Task<Result<User>> Register(CreateUserModel model);
         Task<Result> VerifyLogin(LoginUserModel model);
+        Task<Result<List<ItemUserModel>>> GetAll();
     }
 
     public class UserService : PasswordValidator<User>, IUserService
@@ -53,5 +56,14 @@ namespace PlanningPocker.Services.IUserServices
 
         }
 
+        public async Task<Result<List<ItemUserModel>>> GetAll()
+        {
+            return Result.Success(await _context.Users.Select(x => new ItemUserModel
+            {
+                UserId = x.Id,
+                Name = x.Name,
+                UserName = x.UserName
+            }).ToListAsync());
+        }
     }
 }
